@@ -72,7 +72,7 @@ const Login = () => {
 
     return (
         <>
-            <NavbarSwitch />
+            
             <div className="login-container no-bg">
                 <div className="login-form">
                     <h1 className="login-heading">Login</h1>

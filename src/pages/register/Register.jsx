@@ -86,7 +86,7 @@ const Register = () => {
 
   return (
     <>
-      <NavbarSwitch />
+     
       <div className="register-container no-bg">
         <div className="register-form">
           <h1 className="register-heading">Create an Account</h1>
