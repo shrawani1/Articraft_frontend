@@ -289,12 +289,12 @@ const AdminDashboard = () => {
                       className="form-control"
                     >
                       <option value="">--Select Category--</option>
-                      <option value="tv">TV</option>
-                      <option value="Small Appliances">Small Appliances</option>
-                      <option value="Big Appliances">Big Appliances</option>
-                      <option value="Solar">Solar</option>
-                      <option value="Kitchen Appliances">Kitchen Appliances</option>
-                      <option value="Air conditioner">Air Conditioner</option>
+                      <option value="tv">Accessories</option>
+                      <option value="Small Appliances">Gifts</option>
+                      <option value="Big Appliances">Bags</option>
+                      <option value="Solar">Jewellery</option>
+                      <option value="Kitchen Appliances">Arts</option>
+                      <option value="Air conditioner">Home and Living</option>
                     </select>
                   </div>
 

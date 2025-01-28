@@ -75,7 +75,7 @@
 }
 
 .btn-primary {
-  background-color: #3f4245;
+  background-color: #d0b8a8;
   border: none;
   color: white;
   padding: 5px 15px;
@@ -85,11 +85,11 @@
 }
 
 .btn-primary:hover {
-  background-color: #40a9ff;
+  background-color: #b89c8b;
 }
 
 .btn-primary:focus {
-  background-color: #40a9ff;
+  background-color: #b89c8b;
   border: none;
 }
 

@@ -21,21 +21,21 @@ import {
 
 // Background wrapper for the entire page
 const BackgroundWrapper = styled.div`
-  background: url('https://images.unsplash.com/photo-1526415302530-ad8c7d818689?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
-  background-size: cover;
+  background-color: #f4eae4; 
   min-height: 100vh;
-  padding: 2rem;
+  padding: 1rem 2rem; 
 `;
+
 
 const CartContainer = styled(motion.div)`
   display: flex;
   max-width: 1400px;
   margin: 2rem auto;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.95); // Slightly transparent white
+  background: rgba(255, 255, 255, 0.95); 
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden; // Ensure content doesn't overflow
+  overflow: hidden;
 
   @media (max-width: 1200px) {
     flex-direction: column;
@@ -71,6 +71,7 @@ const CartItem = styled(motion.div)`
 const ItemDetails = styled.div`
   flex: 1;
   margin-left: 1.5rem;
+  
 `;
 
 const ItemName = styled.h3`
@@ -82,7 +83,7 @@ const ItemName = styled.h3`
 
 const ItemPrice = styled.p`
   font-weight: bold;
-  color: #e74c3c;
+  color:rgb(167, 112, 72);
   font-size: 1.1rem;
 `;
 
@@ -137,7 +138,11 @@ const TotalAmount = styled.div`
 `;
 
 const EmptyCartMessage = styled.div`
-  text-align: center;
+  display: flex; /* Use flexbox to align content */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: right; /* Center text inside the container */
   font-size: 1.2rem;
   margin-top: 2rem;
   color: #7f8c8d;
@@ -148,12 +153,27 @@ const EmptyCartMessage = styled.div`
   }
 `;
 
+
+const ShoppingCartTitle = styled.h2`
+  margin-top: -1rem; 
+  margin-bottom: 1rem;
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: regular;
+  color: #333;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  gap: 0.5rem; 
+`;
+
+
 const Cart = () => {
   const [address, setAddress] = useState("KTM");
   const [paymentMethod, setPaymentMethod] = useState("Cash On Delivery");
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
-  const [deliveryCharge, setDeliveryCharge] = useState(50);
+  const [deliveryCharge, setDeliveryCharge] = useState(80);
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [change, setChange] = useState(false);
@@ -315,9 +335,10 @@ const Cart = () => {
         {cartItems.length > 0 ? (
           <>
             <CartItemsSection>
-              <h2>
+              <ShoppingCartTitle>
                 <ShoppingCartOutlined /> Your Shopping Cart
-              </h2>
+              </ShoppingCartTitle>
+
               <AnimatePresence>
                 {cartItems.map((cart, index) => (
                   <CartItem
@@ -366,12 +387,11 @@ const Cart = () => {
                       </p>
                     </ItemDetails>
                     <Button
-                      type="primary"
-                      danger
-                      icon={<DeleteOutlined />}
+                      type= "text"
+                      icon={<DeleteOutlined style={{ marginLeft: 15, marginTop: 330, fontSize: '26px',  color: '#333' }} />}
                       onClick={() => handleDeleteCartItem(cart._id)}
                     >
-                      Delete
+                     
                     </Button>
                   </CartItem>
                 ))}
@@ -441,9 +461,10 @@ const Cart = () => {
           </>
         ) : (
           <EmptyCartMessage>
-            <ShoppingCartOutlined />
-            <p>Your cart is empty. Start shopping now!</p>
-          </EmptyCartMessage>
+          <ShoppingCartOutlined style={{marginLeft: 500 }} />
+          <p>Your shopping cart feels lonely. Add some items to keep it company! </p>
+        </EmptyCartMessage>
+        
         )}
       </CartContainer>
     </BackgroundWrapper>

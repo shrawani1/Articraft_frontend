@@ -8,7 +8,7 @@ const Footer = () => {
 
      
 
-            <p>&copy;2024 Happy Feet. All Rights Reserved.</p>
+            <p>&copy;2024 Articraft. All Rights Reserved.</p>
         </footer>
     );
 };

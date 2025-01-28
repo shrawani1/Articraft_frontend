@@ -1,83 +1,88 @@
-// import React, { useEffect, useState } from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
-// import './Navbar.css';
+
+
+// import React, { useEffect, useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import "./Navbar.css";
 
 // const Navbar = () => {
 //   const navigate = useNavigate();
-//   const user = JSON.parse(localStorage.getItem('user'));
-//   const [welcomeMessage, setWelcomeMessage] = useState('');
-//   const [searchQuery, setSearchQuery] = useState('');
+//   const [user, setUser] = useState(null); // Manage user state
+//   const [searchQuery, setSearchQuery] = useState("");
 
 //   useEffect(() => {
-//     if (user) {
-//       const fetchUserData = async () => {
-//         try {
-//           const response = await fetch(`http://localhost:3000/user/${user._id}`);
-//           if (!response.ok) throw new Error('Network response was not ok');
-//           const data = await response.json();
-//           setWelcomeMessage(`Welcome back, ${data.firstName}!`);
-//         } catch (error) {
-//           console.log('Failed to fetch user data', error);
-//         }
-//       };
-//       fetchUserData();
-//     }
-//   }, [user]);
+//     // Fetch user data from local storage
+//     const storedUser = JSON.parse(localStorage.getItem("user"));
+//     setUser(storedUser);
+//   }, []);
 
 //   const handleLogout = () => {
-//     localStorage.removeItem('user');
-//     navigate('/login');
+//     localStorage.removeItem("user");
+//     setUser(null); // Reset user state
+//     navigate("/login");
 //   };
 
 //   const handleSearch = () => {
 //     navigate(`/dashboard?search=${searchQuery}`);
 //   };
 
+//   const handleLogin = () => {
+//     navigate("/login");
+//   };
+
 //   return (
 //     <div className="navbar-container">
 //       <nav className="navbar">
+//         {/* Left Section: Circular Logo */}
 //         <div className="navbar-left">
-//           <Link className="navbar-logo-link" to="/">
-//             <img src="../assets/images/logo.png" alt="Logo" className="navbar-logo" />
-//             <span className="brand-name">
-//               <span className="brand-highlight">Happy</span> Feet
-//             </span>
-//           </Link>
-//           <div className="navbar-links-left">
-//             <Link className="nav-link" to="/dashboard">Home</Link>
-//             {user && <Link className="nav-link" to="/profile">Profile</Link>}
-//             <Link to="/Favourites" className="nav-link">Favourites</Link>
-//             <Link to="/my_cart" className="nav-link">Cart</Link>
+//           <div
+//             className="navbar-logo-link"
+//             onClick={() => navigate("/dashboard")}
+//             style={{ cursor: "pointer" }}
+//           >
+//             <img
+//               src="/assets/images/logo.png"
+//               alt="Logo"
+//               className="navbar-logo-circle"
+//             />
 //           </div>
-//         </div>
-//         <div className="navbar-links-right">
 //           <div className="search-container">
 //             <input
 //               type="text"
-//               placeholder="Search products..."
+//               placeholder="Tap to search"
 //               value={searchQuery}
 //               onChange={(e) => setSearchQuery(e.target.value)}
-//               className="form-control"
+//               className="search-input"
 //             />
-//             <button onClick={handleSearch} className="btn btn-primary">Search</button>
+//             <button onClick={handleSearch} className="search-button">
+//               <i className="fas fa-search"></i>
+//             </button>
 //           </div>
+//         </div>
+
+//         {/* Right Section: Links */}
+//         <div className="navbar-links-right">
+//           <Link className="nav-link" to="/dashboard">
+//             Home
+//           </Link>
+//           {user && <Link className="nav-link" to="/profile">Profile</Link>}
+//           <Link className="nav-link" to="/favourites">
+//             Favourites
+//           </Link>
+//           <Link className="nav-link" to="/my_cart">
+//             Cart
+//           </Link>
+//           <Link to="/orderlist" className="dropdown-item">
+//             My Orders
+//           </Link>
+
 //           {user ? (
-//             <div className="nav-item dropdown">
-//               <button className="nav-link dropdown-toggle">
-//                 <i className="fas fa-user mr-2"></i>
-//                 {user.firstName}
-//                 <div className="welcome-message">{welcomeMessage}</div>
-//               </button>
-//               <div className="dropdown-menu">
-//                 <Link to="/orderlist" className="dropdown-item">My Orders</Link>
-//                 <button onClick={handleLogout} className="dropdown-item">Logout</button>
-//               </div>
-//             </div>
+//             <button className="logout-button" onClick={handleLogout}>
+//               Logout
+//             </button>
 //           ) : (
-//             <>
-//               <Link to="/login" className="nav-link">Login</Link>
-//               <Link to="/register" className="nav-link">Register</Link>
-//             </>
+//             <button className="logout-button" onClick={handleLogin}>
+//               Login
+//             </button>
 //           )}
 //         </div>
 //       </nav>
@@ -87,75 +92,140 @@
 
 // export default Navbar;
 
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Navbar.css';
-
-const Navbar = () => {
+const Navbar = ({ setIsLoginOpen }) => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('user'));
-  const [welcomeMessage, setWelcomeMessage] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [user, setUser] = useState(null); // Manage user state
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    if (user) {
-      const fetchUserData = async () => {
-        try {
-          const response = await fetch(`http://localhost:3000/user/${user._id}`);
-          if (!response.ok) throw new Error('Network response was not ok');
-          const data = await response.json();
-          setWelcomeMessage(`Welcome back, ${data.firstName}!`);
-        } catch (error) {
-          console.log('Failed to fetch user data', error);
-        }
-      };
-      fetchUserData();
-    }
-  }, [user]);
+    // Fetch user data from local storage
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    setUser(storedUser);
+  }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
-    navigate('/login');
+    localStorage.removeItem("user");
+    setUser(null); // Reset user state
+    navigate("/login");
   };
 
   const handleSearch = () => {
     navigate(`/dashboard?search=${searchQuery}`);
   };
 
+  const handleLogin = () => {
+    if (typeof setIsLoginOpen !== "function") {
+      console.error("setIsLoginOpen is not defined or not a function");
+      return;
+    }
+    setIsLoginOpen(true); // Open the modal
+  };
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false); // State to control logout modal
+
+const handleLogoutConfirm = () => {
+  // Confirm and proceed to log out
+  localStorage.removeItem("user");
+  setUser(null); // Reset user state
+  setShowLogoutConfirm(false); // Close confirmation modal
+  navigate("/dashboard");
+};
+
+
   return (
     <div className="navbar-container">
       <nav className="navbar">
+        {/* Left Section: Circular Logo */}
         <div className="navbar-left">
-          <Link className="navbar-logo-link" to="/">
-            <img src="/assets/images/logo.png" alt="Logo" className="navbar-logo" />
-            <span className="brand-name">Articraft</span>
-          </Link>
-        </div>
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Tap to search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="search-input"
-          />
-          <button onClick={handleSearch} className="search-button">
-            <i className="fas fa-search"></i>
-          </button>
-        </div>
-        <div className="navbar-links-right">
-          <Link className="nav-link" to="/dashboard">Home</Link>
-          {user && <Link className="nav-link" to="/profile">Profile</Link>}
-          <Link className="nav-link" to="/favourites">Favourites</Link>
-          <Link className="nav-link" to="/my_cart">Cart</Link>
-          <Link to="/orderlist" className="dropdown-item">My Orders</Link>
-          
-          {user && (
-            <button className="logout-button" onClick={handleLogout}>
-              Logout
+          <div
+            className="navbar-logo-link"
+            onClick={() => navigate("/dashboard")}
+            style={{ cursor: "pointer" }}
+          >
+            <img
+              src="/assets/images/logo.png"
+              alt="Logo"
+              className="navbar-logo-circle"
+            />
+          </div>
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Tap to search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
+            />
+            <button onClick={handleSearch} className="search-button">
+              <i className="fas fa-search"></i>
             </button>
-          )}
+          </div>
+        </div>
+
+        {/* Right Section: Links */}
+        <div className="navbar-links-right">
+          <Link className="nav-link" to="/dashboard">
+            Home
+          </Link>
+          {user && <Link className="nav-link" to="/profile">Profile</Link>}
+          <Link className="nav-link" to="/favourites">
+            Favourites
+          </Link>
+          <Link className="nav-link" to="/categories">
+            Categories
+          </Link>
+          <Link className="nav-link" to="/my_cart">
+            Cart
+          </Link>
+          
+          <Link to="/orderlist" className="dropdown-item">
+            My Orders
+          </Link>
+
+          {user ? (
+  <>
+    <button
+      className="logout-button"
+      onClick={() => setShowLogoutConfirm(true)} // Open confirmation modal
+    >
+      Logout
+    </button>
+    
+    
+
+    {/* Logout Confirmation Modal */}
+    {showLogoutConfirm && (
+      <div className="logout-modal-overlay">
+        <div className="logout-modal">
+          <p>Are you sure you want to log out?</p>
+          <div className="logout-modal-actions">
+            <button
+              className="logout-confirm-btn"
+              onClick={handleLogoutConfirm}
+            >
+              Yes
+            </button>
+            <button
+              className="logout-cancel-btn"
+              onClick={() => setShowLogoutConfirm(false)} // Close modal
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+  </>
+) : (
+  <button className="logout-button" onClick={handleLogin}>
+    Login
+  </button>
+  
+)}
+
         </div>
       </nav>
     </div>

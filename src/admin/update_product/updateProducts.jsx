@@ -77,12 +77,12 @@ const UpdateProducts = () => {
                         <div className='mb-4'>
                             <label className='form-label text-black'>Choose Category</label>
                             <select value={productCategory} onChange={(e) => setProductCategory(e.target.value)} className='form-control'>
-                                <option value="tv">TV</option>
-                                <option value="Small Appliances">Small Appliances</option>
-                                <option value="Big Appliances">Big Appliances</option>
-                                <option value="Solar">Solar</option>
-                                <option value="Kitchen Appliances">Kitchen Appliances</option>
-                                <option value="Air conditioner">Air Conditioner</option>
+                                <option value="Accessories">Accessories</option>
+                                <option value="Gifts">Gifts</option>
+                                <option value="Bags">Bags</option>
+                                <option value="Jewellery">Jewellery</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Home and Living">Home and Living</option>
                             </select>
                         </div>
 

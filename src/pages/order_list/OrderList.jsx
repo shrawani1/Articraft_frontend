@@ -7,10 +7,9 @@ import { getUserOrdersApi } from "../../apis/Api";
 
 // Wrapper for the entire page with background image
 const BackgroundWrapper = styled.div`
-  background: url('https://images.unsplash.com/photo-1526415302530-ad8c7d818689?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
-  background-size: cover;
+  background-color: #f4eae4; 
   min-height: 100vh;
-  padding: 2rem;
+  padding: 1rem 2rem; 
 `;
 
 const PageContainer = styled.div`

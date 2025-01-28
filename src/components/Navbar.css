@@ -1,4 +1,4 @@
-/* General Styling */
+/* General Navbar Styling */
 .navbar-container {
   background-color: #f4eae4;
   border-bottom: 1px solid #ddd;
@@ -9,42 +9,45 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
-/* Logo Section */
+/* Left Section: Logo and Search */
 .navbar-left {
   display: flex;
   align-items: center;
+  gap: 20px; /* Space between logo and search bar */
 }
 
-.navbar-logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+/* Circular Logo */
+.navbar-logo-circle {
+  height: 55px; /* Maintain the original height */
+  width: 55px; /* Maintain the original width */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover;
+  transform: scale(1.25); /* Increase the size visually */
+  transition: transform 0.3s ease-in-out;
 }
 
-.navbar-logo {
-  height: 50px;
-  margin-right: 10px;
+.navbar-logo-circle:hover {
+  transform: scale(1.35); /* Slightly increase on hover for interactivity */
 }
 
-.brand-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Search Section */
+/* Search Bar */
 .search-container {
   display: flex;
   align-items: center;
-  background-color: white;
-  border-radius: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
   padding: 5px 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 450px;
+  height: 45px;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
+/* Search Input */
 .search-input {
   border: none;
   outline: none;
@@ -61,25 +64,32 @@
   cursor: pointer;
 }
 
-/* Right Links Section */
+/* Navigation Links Section */
 .navbar-links-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: flex-end; /* Align links to the right */
+  flex-grow: 1; /* Push links to the far right */
+  margin-left: 15px;
+  gap: 34px; /* Space between links */
 }
-
+/* Individual Nav Links */
 .nav-link {
   text-decoration: none;
   font-size: 1rem;
   font-weight: bold;
   color: #333;
   transition: color 0.3s ease;
+  white-space: nowrap; 
+  
 }
+
 
 .nav-link:hover {
   color: #b89c8b;
 }
 
+/* Logout Button */
 .logout-button {
   background-color: #d0b8a8;
   border: none;
@@ -87,7 +97,7 @@
   font-size: 1rem;
   font-weight: bold;
   padding: 8px 15px;
-  border-radius: 20px;
+  border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -96,3 +106,67 @@
   background-color: #b89c8b;
   transform: scale(1.05);
 }
+
+/* Logout Modal Overlay */
+.logout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Logout Modal */
+.logout-modal {
+  background: #fdfdfd; /* Match Navbar background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Modal Text */
+.logout-modal p {
+  font-size: 1.1rem;
+  color: #333; /* Text color consistent with Navbar */
+  margin-bottom: 15px;
+}
+
+/* Logout Modal Buttons */
+.logout-modal-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.logout-confirm-btn,
+.logout-cancel-btn {
+  background-color: #d0b8a8; /* Match the button theme in Navbar */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logout-confirm-btn:hover {
+  background-color: #b89c8b; /* Slightly darker tone for hover */
+  transform: scale(1.05);
+}
+
+.logout-cancel-btn:hover {
+  background-color: #b89c8b; /* Same hover effect for cancel */
+  transform: scale(1.05);
+}
+

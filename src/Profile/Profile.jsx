@@ -3,7 +3,6 @@ import { getUserProfileApi, updateUserProfileApi } from '../apis/Api';
 import { toast } from 'react-toastify';
 import './Profile.css'; // Ensure you have this file for custom styles
 
-
 const Profile = () => {
   const [user, setUser] = useState({});
   const [editMode, setEditMode] = useState(false);
@@ -20,7 +19,7 @@ const Profile = () => {
         setLastName(res.data.lastName);
         setPhone(res.data.phone);
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error('Error fetching user data');
       });
   }, []);
@@ -33,7 +32,7 @@ const Profile = () => {
         setUser(res.data);
         setEditMode(false);
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error('Error updating profile');
       });
   };
@@ -42,11 +41,11 @@ const Profile = () => {
     <div className="profile-container">
       <div className="profile-card">
         <div className="profile-header">
+          <h1>User Profile</h1>
           <img
             src="../assets/images/logo.png"
-            alt="Company Logo"
+            alt="Profile Avatar"
           />
-          <h1>User Profile</h1>
         </div>
         {!editMode ? (
           <div className="profile-info">
@@ -68,7 +67,7 @@ const Profile = () => {
             </div>
             <button
               onClick={() => setEditMode(true)}
-              className="bg-blue-500 text-white py-2 px-4 rounded"
+              className="edit-profile text-white py-2 px-4 rounded mt-6"
             >
               Edit Profile
             </button>
@@ -111,13 +110,13 @@ const Profile = () => {
               <button
                 type="button"
                 onClick={() => setEditMode(false)}
-                className="bg-gray-500 text-white py-2 px-4 rounded"
+                className="button text-white py-2 px-4 rounded"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="bg-green-500 text-white py-2 px-4 rounded"
+                className="save-changes text-white py-2 px-4 rounded"
               >
                 Save Changes
               </button>
@@ -125,7 +124,6 @@ const Profile = () => {
           </form>
         )}
       </div>
-      
     </div>
   );
 };
