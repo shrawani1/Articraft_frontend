@@ -1,0 +1,132 @@
+/* Help Page Styles */
+
+/* General container styling */
+.help-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header styles */
+  .help-header {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Section title styles */
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .section-title .underline {
+    width: 100px;
+    height: 4px;
+    background-color: #007bff;
+    margin: 10px auto;
+  }
+  
+  /* Info card styles */
+  .info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .info-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .info-card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .info-card:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .info-card:hover h3 {
+    color: #fff;
+  }
+  
+  .info-card:hover p {
+    color: #f9f9f9;
+  }
+  
+  /* FAQ and Troubleshooting styles */
+  .faq-section, .troubleshooting-section {
+    margin-bottom: 40px;
+  }
+  
+  .faq-item, .troubleshooting-item {
+    background-color: #fff;
+    border-left: 4px solid #28a745;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faq-item h3, .troubleshooting-item h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .faq-item p, .troubleshooting-item p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .troubleshooting-item {
+    border-left-color: #dc3545;
+  }
+  
+  /* Utility styles */
+  .center {
+    text-align: center;
+  }
+  
+  .text-bold {
+    font-weight: bold;
+  }
+  
+  .margin-bottom {
+    margin-bottom: 20px;
+  }
+  
