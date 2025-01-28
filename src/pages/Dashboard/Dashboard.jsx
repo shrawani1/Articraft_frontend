@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
 import { productPagination, productCount } from "../../apis/Api";
 import Footer from "../../components/Footer";
 
 import "./Dashboard.css";
-
 
 const Dashboard = () => {
   const location = useLocation();
@@ -19,6 +18,7 @@ const Dashboard = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   const limit = 10; // Number of products per page
 
+  const newArrivalsRef = useRef(null); // Reference for "New Arrivals" section
 
   useEffect(() => {
     fetchProductCount();
@@ -51,11 +51,14 @@ const Dashboard = () => {
       });
   };
 
-  
+  const handleShopNowClick = () => {
+    if (newArrivalsRef.current) {
+      newArrivalsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
-
       <div className="container-fluid">
         {/* Carousel */}
         <div id="carouselExampleCaptions" className="carousel slide">
@@ -91,7 +94,9 @@ const Dashboard = () => {
               <div className="carousel-overlay">
                 <h3 className="carousel-text-title">Shop Our</h3>
                 <h1 className="carousel-text-main">New Arrivals</h1>
-                <button className="carousel-btn">Shop Now</button>
+                <button className="carousel-btn" onClick={handleShopNowClick}>
+                  Shop Now
+                </button>
               </div>
             </div>
             <div className="carousel-item">
@@ -143,7 +148,10 @@ const Dashboard = () => {
           {products.length > 0 ? (
             products.map((singleProduct) => (
               <div className="col" key={singleProduct._id}>
-                <ProductCard productInformation={singleProduct} color={"green"} />
+                <ProductCard
+                  productInformation={singleProduct}
+                  color={"green"}
+                />
               </div>
             ))
           ) : (
@@ -154,13 +162,21 @@ const Dashboard = () => {
         </div>
 
         {/* New Arrivals Section */}
-        <h2 className="mt-5 collection-heading">New Arrivals</h2>
+        <h2
+          className="mt-5 collection-heading"
+          ref={newArrivalsRef} // Reference for New Arrivals
+        >
+          New Arrivals
+        </h2>
 
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {products.length > 0 ? (
-            products.slice(0, 4).map((singleProduct) => (
+            products.slice(0, 6).map((singleProduct) => (
               <div className="col" key={singleProduct._id}>
-                <ProductCard productInformation={singleProduct} color={"blue"} />
+                <ProductCard
+                  productInformation={singleProduct}
+                  color={"blue"}
+                />
               </div>
             ))
           ) : (
@@ -168,53 +184,6 @@ const Dashboard = () => {
               <p>No new arrivals found.</p>
             </div>
           )}
-        </div>
-
-        {/* Pagination Controls */}
-        <div className="pagination-container mt-4">
-          <nav>
-            <ul className="pagination">
-              <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
-                <button
-                  className="page-link"
-                  onClick={() => setPage(1)}
-                >
-                  First
-                </button>
-              </li>
-              <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
-                <button
-                  className="page-link"
-                  onClick={() => setPage(page - 1)}
-                >
-                  Previous
-                </button>
-              </li>
-              {Array.from({ length: totalPages }, (_, i) => (
-                <li key={i} className={`page-item ${page === i + 1 ? "active" : ""}`}>
-                  <button className="page-link" onClick={() => setPage(i + 1)}>
-                    {i + 1}
-                  </button>
-                </li>
-              ))}
-              <li className={`page-item ${page === totalPages ? "disabled" : ""}`}>
-                <button
-                  className="page-link"
-                  onClick={() => setPage(page + 1)}
-                >
-                  Next
-                </button>
-              </li>
-              <li className={`page-item ${page === totalPages ? "disabled" : ""}`}>
-                <button
-                  className="page-link"
-                  onClick={() => setPage(totalPages)}
-                >
-                  Last
-                </button>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
       <Footer />

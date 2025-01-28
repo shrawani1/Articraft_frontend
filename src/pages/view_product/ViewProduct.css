@@ -1,6 +1,6 @@
 /* General Styles */
 .background {
-  background-image: url('https://images.unsplash.com/photo-1526415302530-ad8c7d818689?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-color: #f4eae4;
   background-size: cover;
   background-position: center;
   padding: 20px;
@@ -9,8 +9,10 @@
 
 .container {
   max-width: 1200px;
+  background-color: #f4eae4; 
   margin: auto;
 }
+
 
 .product-image {
   width: 100%;
@@ -75,23 +77,49 @@
 }
 
 .btn-primary {
-  background-color: #d0b8a8;
+  background-color: #d0b8a8; /* Default button color */
   border: none;
   color: white;
-  padding: 5px 15px;
-  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-  background-color: #b89c8b;
+  background-color: #b89c8b; /* Darker color on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 .btn-primary:focus {
-  background-color: #b89c8b;
-  border: none;
+  background-color: #b89c8b; /* Consistent focus color */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Slight shadow on focus */
 }
+
+/* For Quantity Selector Buttons */
+.quantity-selector .ant-btn-primary {
+  background-color: #d0b8a8;
+  border-color: #d0b8a8;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.quantity-selector .ant-btn-primary:hover {
+  background-color: #b89c8b;
+  border-color: #b89c8b;
+  transform: scale(1.05); /* Consistent zoom effect */
+}
+
+.price-tag {
+  font-weight: bold;
+  color: #b89c8b; /* Match the theme color */
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
 
 .mt-5 {
   margin-top: 5rem;

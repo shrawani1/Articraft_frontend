@@ -1,9 +1,9 @@
+/* General Background */
 body {
-  background-color: #e9f5ff;
+  background-color: #f4eae4;
 }
 
-
-
+/* Navbar Styles */
 .navbar .navbar-brand {
   color: #fff;
 }
@@ -12,6 +12,7 @@ body {
   color: #fff;
 }
 
+/* Card and Table Styles */
 .card {
   margin-top: 20px;
 }
@@ -20,21 +21,30 @@ body {
   vertical-align: middle;
 }
 
+/* Primary Button Colors */
 .btn-primary {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background-color: #d0b8a8; /* Light beige tone */
+  border-color: #d0b8a8;
 }
 
 .btn-primary:hover {
-  background-color: #004494;
-  border-color: #004494;
+  background-color: #b89c8b; /* Darker beige tone for hover */
+  border-color: #b89c8b;
 }
 
-/* New CSS rules to change text color to black */
-h3 {
-  color: black !important;
+/* Secondary Buttons (e.g., Add to Cart, Buy Now) */
+.text-end button {
+  color: white;
+  background-color: #b89c8b; /* Darker beige */
+  border-color: #b89c8b;
 }
 
+.text-end button:hover {
+  background-color: #9e806e; /* Even darker beige for hover */
+  border-color: #9e806e;
+}
+
+/* Modal and Form Styles */
 .modal-title {
   color: black !important;
 }
@@ -56,6 +66,7 @@ h3 {
   color: black !important;
 }
 
+/* Table Styles */
 .table-dark th {
   color: white;
   background-color: #343a40;
@@ -66,8 +77,14 @@ h3 {
   background-color: #f8f9fa;
 }
 
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Card Colors */
 .card-header {
   color: white !important;
+  background-color: #d0b8a8; /* Matching card header to theme */
 }
 
 .card-body {
@@ -78,26 +95,12 @@ h3 {
   color: black !important;
 }
 
-.table-hover tbody tr:hover {
-  background-color: #f1f1f1;
-}
-
-.text-end button {
-  color: white;
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-
-.text-end button:hover {
-  background-color: #004494;
-  border-color: #004494;
-}
-
+/* Button Close Style */
 .btn-close {
   filter: invert(1);
 }
 
-/* Ensuring all modal labels and inputs have black text */
+/* Modal Label and Input Styles */
 .modal-body label {
   color: black !important;
 }

@@ -169,4 +169,11 @@
   background-color: #b89c8b; /* Same hover effect for cancel */
   transform: scale(1.05);
 }
+/* Add this to highlight active links */
+.nav-link.active {
+  color: #b89c8b; /* Highlight color for active link */
+  font-weight: bold; /* Make the active link bold */
+  text-decoration: underline; /* Optional: Add underline to active link */
+}
+
 

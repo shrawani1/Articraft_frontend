@@ -116,7 +116,7 @@ const AdminDashboard = () => {
 
   return (
     <>
-      <div className="container-fluid p-4" style={{ backgroundColor: '#e9f5ff' }}>
+      <div className="container-fluid p-4" style={{ backgroundColor: '#f4eae4' }}>
 
         <div className="row">
           <div className="col-lg-12">
@@ -289,12 +289,12 @@ const AdminDashboard = () => {
                       className="form-control"
                     >
                       <option value="">--Select Category--</option>
-                      <option value="tv">Accessories</option>
-                      <option value="Small Appliances">Gifts</option>
-                      <option value="Big Appliances">Bags</option>
-                      <option value="Solar">Jewellery</option>
-                      <option value="Kitchen Appliances">Arts</option>
-                      <option value="Air conditioner">Home and Living</option>
+                      <option value="Accessories">Accessories</option>
+                      <option value="Gifts">Gifts</option>
+                      <option value="Bags">Bags</option>
+                      <option value="Jewellery">Jewellery</option>
+                      <option value="arts">Arts</option>
+                      <option value="Home and Living">Home and Living</option>
                     </select>
                   </div>
 

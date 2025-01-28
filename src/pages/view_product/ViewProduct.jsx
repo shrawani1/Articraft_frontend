@@ -157,20 +157,23 @@ const ViewProduct = () => {
           <div className="col-md-6">
             <div className="card p-3 product-details">
               <h2>{product.productName}</h2>
-              <PriceTag>Rs {product.productPrice}</PriceTag>
+              <p className="price-tag">Rs {product.productPrice}</p>
               <h5>Category: {product.productCategory}</h5>
               <p><strong>Description: </strong>{product.productDescription}</p>
+              
               <p><strong>Date Added: </strong>{new Date(product.createdAt).toLocaleDateString()}</p>
+              
               <p><strong>Status: </strong>Available</p>
-              <p><strong>Views: </strong>{product.views}</p>
+
               <div className="mt-3">
                 <div className="quantity-selector">
-                  <Button onClick={decreaseQuantity} type="primary">-</Button>
+                  <Button onClick={decreaseQuantity} type="primary" className="btn-primary">-</Button>
                   <span>{quantity}</span>
-                  <Button onClick={increaseQuantity} type="primary">+</Button>
+                  <Button onClick={increaseQuantity} type="primary" className="btn-primary">+</Button>
                 </div>
-                <Button onClick={handleAddToCart} type="primary" className="me-2">Add to Cart</Button>
-                <Button onClick={handleProceedToPayment} type="primary">Buy Now</Button>
+                <Button onClick={handleAddToCart} type="primary" className="btn-primary me-2">Add to Cart</Button>
+                <Button onClick={handleProceedToPayment} type="primary" className="btn-primary">Buy Now</Button>
+
               </div>
             </div>
           </div>
