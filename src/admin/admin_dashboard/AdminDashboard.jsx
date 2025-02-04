@@ -33,6 +33,7 @@ const AdminDashboard = () => {
   const [productPrice, setProductPrice] = useState('');
   const [productCategory, setProductCategory] = useState('');
   const [productDescription, setProductDescription] = useState('');
+  const [productStory, setProductStory] = useState('');
   const [productImage, setProductImage] = useState('');
   const [previewImage, setPreviewImage] = useState('');
 
@@ -47,6 +48,7 @@ const AdminDashboard = () => {
     setProductPrice('');
     setProductCategory('');
     setProductDescription('');
+    setProductStory('');
     setProductImage('');
     setPreviewImage('');
   };
@@ -58,6 +60,7 @@ const AdminDashboard = () => {
     formData.append('productPrice', productPrice);
     formData.append('productCategory', productCategory);
     formData.append('productDescription', productDescription);
+    formData.append('productStory', productStory);
     formData.append('productImage', productImage);
 
     createProductApi(formData)
@@ -152,6 +155,7 @@ const AdminDashboard = () => {
                         <td>{singleProduct.productPrice}</td>
                         <td>{singleProduct.productCategory}</td>
                         <td>{singleProduct.productDescription}</td>
+                        <td>{singleProduct.productStory}</td>
                         <td>
                           <Link
                             to={`/admin/update/${singleProduct._id}`}
@@ -306,6 +310,17 @@ const AdminDashboard = () => {
                       type="text"
                       className="form-control"
                       placeholder="Enter product description"
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Product Story</label>
+                    <input
+                      value={productStory}
+                      onChange={(e) => setProductStory(e.target.value)}
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter product story"
                     />
                   </div>
 

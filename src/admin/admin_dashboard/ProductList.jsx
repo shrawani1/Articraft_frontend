@@ -7,9 +7,9 @@ const ProductList = () => {
   useEffect(() => {
     // Dummy data initialization
     const dummyProducts = [
-      { _id: 1, productName: 'Product 1', productPrice: 100, productCategory: 'Category A', productDescription: 'Description A' },
-      { _id: 2, productName: 'Product 2', productPrice: 200, productCategory: 'Category B', productDescription: 'Description B' },
-      { _id: 3, productName: 'Product 3', productPrice: 300, productCategory: 'Category C', productDescription: 'Description C' },
+      { _id: 1, productName: 'Product 1', productPrice: 100, productCategory: 'Category A', productDescription: 'Description A', productStory: 'Story A' },
+      { _id: 2, productName: 'Product 2', productPrice: 200, productCategory: 'Category B', productDescription: 'Description B', productStory: 'Story B' },
+      { _id: 3, productName: 'Product 3', productPrice: 300, productCategory: 'Category C', productDescription: 'Description C,', productStory: 'Story C' },
     ];
     setProducts(dummyProducts);
   }, []);
@@ -66,6 +66,7 @@ const ProductList = () => {
                       <td>{singleProduct.productPrice}</td>
                       <td>{singleProduct.productCategory}</td>
                       <td>{singleProduct.productDescription}</td>
+                      <td>{singleProduct.productStory}</td>
                       <td>
                         <Link
                           to={`/admin/update/${singleProduct._id}`}

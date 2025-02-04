@@ -36,6 +36,7 @@ import RegisterModal from './components/RegisterModal'; // Import the RegisterMo
 import Help from './pages/help/Help';
 import Categories from './components/Categories';
 import CategoryProduct from './components/CategoryProduct';
+import CategoryPage from "./pages/category/CategoryPage";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -157,7 +158,10 @@ function App() {
           <Route path="/orderlist" element={<OrderList />} />
           <Route path="/help" element={<Help />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/categories/:category" element={<CategoryProduct />} />
+          {/* <Route path="/categories/:category" element={<CategoryProduct />} />
+          <Route path="/categories/Accessories" element={<Accessories />} />
+          <Route path="/category/:categoryName" element={<CategoryPage />} />  */}
+          <Route path="/category/:category" element={<CategoryPage />} />
 
         </Route>
       </Routes>

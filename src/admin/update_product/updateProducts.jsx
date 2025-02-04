@@ -13,6 +13,7 @@ const UpdateProducts = () => {
             setProductPrice(res.data.product.productPrice)
             setProductCategory(res.data.product.productCategory)
             setProductDescription(res.data.product.productDescription)
+            setProductStory(res.data.product.productStory)
             setOldImage(res.data.product.productImage)
         }).catch((error) => {
             console.log(error)
@@ -23,6 +24,7 @@ const UpdateProducts = () => {
     const [productPrice, setProductPrice] = useState('')
     const [productCategory, setProductCategory] = useState('')
     const [productDescription, setProductDescription] = useState('')
+    const [productStory, setProductStory] = useState('')
     const [productNewImage, setProductNewImage] = useState(null)
     const [previewNewImage, setPreviewNewImage] = useState(null)
     const [oldImage, setOldImage] = useState('')
@@ -41,6 +43,7 @@ const UpdateProducts = () => {
         formData.append('productPrice', productPrice)
         formData.append('productCategory', productCategory)
         formData.append('productDescription', productDescription)
+        formData.append('productStory', productStory)
         if (productNewImage) {
             formData.append('productImage', productNewImage)
         }
@@ -89,6 +92,11 @@ const UpdateProducts = () => {
                         <div className='mb-4'>
                             <label className='form-label text-black'>Enter Description</label>
                             <textarea value={productDescription} onChange={(e) => setProductDescription(e.target.value)} className='form-control' rows="3"></textarea>
+                        </div>
+
+                        <div className='mb-4'>
+                            <label className='form-label text-black'>Enter Story</label>
+                            <textarea value={productStory} onChange={(e) => setProductStory(e.target.value)} className='form-control' rows="3"></textarea>
                         </div>
 
                         <div className='mb-4'>
