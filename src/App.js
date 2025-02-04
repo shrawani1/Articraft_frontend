@@ -34,6 +34,8 @@ import ViewContact from './admin/view_contact/ViewContact';
 import LoginModal from './components/LoginModal'; // Import the LoginModal component
 import RegisterModal from './components/RegisterModal'; // Import the RegisterModal 
 import Help from './pages/help/Help';
+import Categories from './components/Categories';
+import CategoryProduct from './components/CategoryProduct';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -154,6 +156,8 @@ function App() {
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/orderlist" element={<OrderList />} />
           <Route path="/help" element={<Help />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/:category" element={<CategoryProduct />} />
 
         </Route>
       </Routes>
