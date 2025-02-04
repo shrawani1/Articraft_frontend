@@ -8,6 +8,15 @@ const Navbar = ({ setIsLoginOpen }) => {
   const [user, setUser] = useState(null); // Manage user state
   const [searchQuery, setSearchQuery] = useState("");
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false); // State to control logout modal
+  
+  // Predefined categories
+  const [categories] = useState([
+    "Accessories",
+    "Gifts",
+    "Bags",
+    "Jewellery",
+    "Arts"
+  ]);
 
   useEffect(() => {
     // Fetch user data from local storage
@@ -33,21 +42,20 @@ const Navbar = ({ setIsLoginOpen }) => {
     setIsLoginOpen(true); // Open the modal
   };
 
-  const handleLogoutConfirm = () => {
-    // Confirm and proceed to log out
-    localStorage.removeItem("user");
-    setUser(null); // Reset user state
-    setShowLogoutConfirm(false); // Close confirmation modal
-    navigate("/dashboard");
+  const handleCategoryChange = (event) => {
+    const category = event.target.value;
+    if (category) {
+      navigate(`/category/${category}`);
+      // Reset the dropdown by setting its value back to the default
+      event.target.value = '';
+    }
   };
 
-  // Function to check if the link is active
   const isActive = (path) => location.pathname === path;
 
   return (
     <div className="navbar-container">
       <nav className="navbar">
-        {/* Left Section: Circular Logo */}
         <div className="navbar-left">
           <div
             className="navbar-logo-link"
@@ -74,72 +82,44 @@ const Navbar = ({ setIsLoginOpen }) => {
           </div>
         </div>
 
-        {/* Right Section: Links */}
         <div className="navbar-links-right">
-          <Link
-            className={`nav-link ${isActive("/dashboard") ? "active" : ""}`}
-            to="/dashboard"
-          >
+          <Link className={`nav-link ${isActive("/dashboard") ? "active" : ""}`} to="/dashboard">
             Home
           </Link>
           {user && (
-            <Link
-              className={`nav-link ${isActive("/profile") ? "active" : ""}`}
-              to="/profile"
-            >
+            <Link className={`nav-link ${isActive("/profile") ? "active" : ""}`} to="/profile">
               Profile
             </Link>
           )}
-          <Link
-            className={`nav-link ${isActive("/favourites") ? "active" : ""}`}
-            to="/favourites"
-          >
+          <Link className={`nav-link ${isActive("/favourites") ? "active" : ""}`} to="/favourites">
             Favourites
           </Link>
-          <Link
-            className={`nav-link ${isActive("/categories") ? "active" : ""}`}
-            to="/categories"
-          >
-            Categories
-          </Link>
-          <Link
-            className={`nav-link ${isActive("/my_cart") ? "active" : ""}`}
-            to="/my_cart"
-          >
+          <select className="nav-link dropdown" onChange={handleCategoryChange} defaultValue="">
+            <option value="" disabled>Categories</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
+          <Link className={`nav-link ${isActive("/my_cart") ? "active" : ""}`} to="/my_cart">
             Cart
           </Link>
-          <Link
-            className={`dropdown-item ${isActive("/orderlist") ? "active" : ""}`}
-            to="/orderlist"
-          >
+          <Link className={`dropdown-item ${isActive("/orderlist") ? "active" : ""}`} to="/orderlist">
             My Orders
           </Link>
-
           {user ? (
             <>
-              <button
-                className="logout-button"
-                onClick={() => setShowLogoutConfirm(true)} // Open confirmation modal
-              >
+              <button className="logout-button" onClick={() => setShowLogoutConfirm(true)}>
                 Logout
               </button>
-
-              {/* Logout Confirmation Modal */}
               {showLogoutConfirm && (
                 <div className="logout-modal-overlay">
                   <div className="logout-modal">
                     <p>Are you sure you want to log out?</p>
                     <div className="logout-modal-actions">
-                      <button
-                        className="logout-confirm-btn"
-                        onClick={handleLogoutConfirm}
-                      >
+                      <button className="logout-confirm-btn" onClick={handleLogout}>
                         Yes
                       </button>
-                      <button
-                        className="logout-cancel-btn"
-                        onClick={() => setShowLogoutConfirm(false)} // Close modal
-                      >
+                      <button className="logout-cancel-btn" onClick={() => setShowLogoutConfirm(false)}>
                         No
                       </button>
                     </div>
