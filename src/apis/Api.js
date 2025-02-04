@@ -153,5 +153,8 @@ export const getAllContacts = () => Api.get('/api/contact/all', config);
 export const addReviewApi = (data) => Api.post('/api/rating/add', data,config);
 export const getReviewsApi = (productId) => Api.get(`/api/rating/product/${productId}`);
 
+//categories
+export const getCategories = () => Api.get('/api/categories');
+
 
   
