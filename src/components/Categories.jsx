@@ -1,8 +1,8 @@
-// src/components/Categories.js
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllProducts } from '../apis/Api'; // adjust the path as needed
-// import './Categories.css'; // optional: for custom styling
+import { getAllProducts } from '../apis/Api'; 
+
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -30,17 +30,11 @@ const Categories = () => {
         <ul className="list-group">
           {categories.map((category, index) => (
             <li key={index} className="list-group-item">
-              {/* 
-                Option 1: Link to a page that shows products for this category.
-                (Make sure you create a corresponding route and component, e.g. CategoryProducts)
-              */}
+              
               <Link to={`/categories/${encodeURIComponent(category)}`}>
                 {category}
               </Link>
-              {/* 
-                Option 2: If you just want to display the category name without a link, you can simply render:
-                {category}
-              */}
+              
             </li>
           ))}
         </ul>

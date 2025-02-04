@@ -22,7 +22,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MyCart from './pages/myCart/MyCart';
 import ViewProduct from './pages/view_product/ViewProduct';
-import AboutUs from './pages/aboutUs/AboutUs';
 import Services from './pages/services/Services';
 import Team from './pages/team/Team';
 import Contact from './pages/contact/Contact';
@@ -148,7 +147,6 @@ function App() {
           <Route path="/view_product/:id" element={<ViewProduct />} />
           <Route path='/my_cart' element={<MyCart />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/services' element={<Services />} />
           <Route path='/team' element={<Team />} />
           <Route path='/contact' element={<Contact />} />

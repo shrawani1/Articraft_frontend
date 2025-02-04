@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { loginUserApi } from "../apis/Api";
 import "./LoginModal.css";
 
-// Set the app element for accessibility
+
 Modal.setAppElement("#root");
 
 const LoginModal = ({ isOpen, onClose, setIsRegisterOpen }) => {
@@ -15,7 +15,7 @@ const LoginModal = ({ isOpen, onClose, setIsRegisterOpen }) => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const validate = () => {
     let isValid = true;
@@ -47,7 +47,7 @@ const LoginModal = ({ isOpen, onClose, setIsRegisterOpen }) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setIsLoading(true); // Start loading state
+    setIsLoading(true); 
     try {
       const response = await loginUserApi({ email, password });
       if (response.data.success) {
@@ -74,7 +74,7 @@ const LoginModal = ({ isOpen, onClose, setIsRegisterOpen }) => {
         error.response?.data?.message || "An unexpected error occurred.";
       toast.error(errorMessage);
     } finally {
-      setIsLoading(false); // Stop loading state
+      setIsLoading(false); 
     }
   };
 
@@ -88,7 +88,7 @@ const LoginModal = ({ isOpen, onClose, setIsRegisterOpen }) => {
   };
 
   const handleCloseModal = () => {
-    // Clear inputs and errors when the modal is closed
+    
     setEmail("");
     setPassword("");
     setEmailError("");

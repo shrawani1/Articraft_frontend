@@ -1,8 +1,8 @@
-// src/components/CategoryProducts.js
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAllProducts } from '../apis/Api';
-// import './CategoryProducts.css'; // optional
+
 
 const CategoryProduct = () => {
   const { category } = useParams();

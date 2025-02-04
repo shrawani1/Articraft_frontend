@@ -3,7 +3,7 @@
 .view-contact-container {
     background-color: #f0f4ff;
     min-height: 100vh;
-    padding: 5rem 2rem 2rem 2rem; /* Added top padding to bring the content down */
+    padding: 5rem 2rem 2rem 2rem; 
     display: flex;
     flex-direction: column;
     align-items: center;

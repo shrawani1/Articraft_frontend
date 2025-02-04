@@ -1,4 +1,4 @@
-/* General Navbar Styling */
+
 .navbar-container {
   background-color: #f4eae4;
   border-bottom: 1px solid #ddd;
@@ -21,16 +21,16 @@
 
 /* Circular Logo */
 .navbar-logo-circle {
-  height: 55px; /* Maintain the original height */
-  width: 55px; /* Maintain the original width */
-  border-radius: 50%; /* Circular shape */
+  height: 55px; 
+  width: 55px; 
+  border-radius: 50%; 
   object-fit: cover;
-  transform: scale(1.25); /* Increase the size visually */
+  transform: scale(1.25); 
   transition: transform 0.3s ease-in-out;
 }
 
 .navbar-logo-circle:hover {
-  transform: scale(1.35); /* Slightly increase on hover for interactivity */
+  transform: scale(1.35); 
 }
 
 /* Search Bar */
@@ -114,7 +114,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  background: rgba(0, 0, 0, 0.5); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,7 +123,7 @@
 
 /* Logout Modal */
 .logout-modal {
-  background: #fdfdfd; /* Match Navbar background */
+  background: #fdfdfd; 
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -171,9 +171,9 @@
 }
 /* Add this to highlight active links */
 .nav-link.active {
-  color: #b89c8b; /* Highlight color for active link */
-  font-weight: bold; /* Make the active link bold */
-  text-decoration: underline; /* Optional: Add underline to active link */
+  color: #b89c8b; 
+  font-weight: bold; 
+  text-decoration: underline; 
 }
 
 
