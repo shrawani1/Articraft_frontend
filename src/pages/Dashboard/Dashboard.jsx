@@ -141,7 +141,7 @@ const Dashboard = () => {
         </div>
 
         {/* Collection Heading */}
-        <h2 className="mt-2 collection-heading">Our Collection</h2>
+        <h2 className="mt-2 collection-heading">Premium Products</h2>
 
         {/* Products Section */}
         <div className="row row-cols-1 row-cols-md-4 g-4">

@@ -868,7 +868,7 @@ const ProductCard = ({ productInformation, color }) => {
           onClick={(e) => handleAddToCart(e)}
           className="btn btn-primary mt-2"
         >
-          Add to Cart
+          Buy now
         </button>
 
         <ToastContainer />
