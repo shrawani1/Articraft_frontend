@@ -71,13 +71,13 @@
   justify-content: flex-end; /* Align links to the right */
   flex-grow: 1; /* Push links to the far right */
   margin-left: 15px;
-  gap: 34px; /* Space between links */
+  gap: 22px; /* Space between links */
 }
 /* Individual Nav Links */
 .nav-link {
   text-decoration: none;
   font-size: 1rem;
-  font-weight: bold;
+  
   color: #333;
   transition: color 0.3s ease;
   white-space: nowrap; 
